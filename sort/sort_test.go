@@ -2,12 +2,18 @@ package sort
 
 import (
 	"data-structure-and-algorithm/sort/insert"
+	"data-structure-and-algorithm/sort/merge"
 	"data-structure-and-algorithm/sort/selection"
 	"data-structure-and-algorithm/sort/swap"
 	"testing"
 )
 
 var sortArr = []int{-1,-2,5,3,6,1,8}
+
+func TestMergeSortTopDown(t *testing.T)  {
+	sortArr = merge.MergeSortTopDown(sortArr)
+	t.Log(sortArr)
+}
 
 func TestSelectionSort(t *testing.T) {
 	selection.SelectionSort(sortArr,len(sortArr))
