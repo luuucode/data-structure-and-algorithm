@@ -10,19 +10,12 @@ func MergeIntervals(arr[][] int) (result[][] int) {
 	QuickSort2DArrByRow(arr,0,len(arr) - 1)
 	r := make([][]int, 0)
 	r = append(r,arr[0])
-	index := 0
 	for i := 1; i < len(arr); i++ {
-		if arr[i][0] > arr[index][1]{
-			index++
+		if arr[i][0] > r[len(r)-1][1]{
 			r = append(r,arr[i])
 		}else {
-			//移除当前r数组最后一个数据
-			l := len(r) - 1
-			if r != nil && l >= 0 {
-				r = append(r[:l])
-			}
-			cur := []int{arr[i][0],max(arr[i][1],arr[index][1])}
-			r = append(r,cur)
+			//前一个数右极限大于后一个数左极限
+			r[len(r)-1][1] = max(r[len(r)-1][1],arr[i][1])
 		}
 	}
 	return r
