@@ -9,3 +9,10 @@ func TestMergeIntervals(t *testing.T) {
 	intervals := MergeIntervals(arr)
 	t.Log(intervals)
 }
+
+func TestValidAnagram(t *testing.T) {
+	s := "anagram"
+	y := "nagaram"
+	b := ValidAnagram(s, y)
+	t.Log("ValidAnagram result: ",b)
+}
