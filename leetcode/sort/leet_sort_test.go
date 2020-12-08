@@ -23,3 +23,16 @@ func TestSortColors(t *testing.T) {
 	t.Log(arr)
 
 }
+
+func TestLargeNumber(t *testing.T) {
+	arr := []int{999}
+	num := LargeNumber(arr)
+	t.Log(num)
+}
+
+func TestIntersection(t *testing.T) {
+	var nums1 = []int{4,9,5}
+	var nums2 = []int{9,4,9,8,4}
+	arr := Intersection(nums1, nums2)
+	t.Log(arr)
+}
