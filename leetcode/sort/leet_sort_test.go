@@ -30,9 +30,15 @@ func TestLargeNumber(t *testing.T) {
 	t.Log(num)
 }
 
+var nums1 = []int{1,2,2,1}
+var nums2 = []int{2}
+
 func TestIntersection(t *testing.T) {
-	var nums1 = []int{4,9,5}
-	var nums2 = []int{9,4,9,8,4}
 	arr := Intersection(nums1, nums2)
+	t.Log(arr)
+}
+
+func TestIntersection2(t *testing.T) {
+	arr := Intersection2(nums1, nums2)
 	t.Log(arr)
 }
