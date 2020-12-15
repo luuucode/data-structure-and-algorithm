@@ -1,6 +1,6 @@
-package array
+package interview
 
-type LRUCache struct {
+type LRUCacheArray struct {
 	arr[] *Node
 	capacity int
 }
@@ -10,7 +10,7 @@ type Node struct {
 	value int
 }
 
-func (this *LRUCache)exist(key int) (int,bool) {
+func (this *LRUCacheArray)exist(key int) (int,bool) {
 	for i, n := range this.arr {
 		if n.key == key {
 			return i,true
@@ -19,11 +19,11 @@ func (this *LRUCache)exist(key int) (int,bool) {
 	return -1,false
 }
 
-func (this *LRUCache) remove(i int)  {
+func (this *LRUCacheArray) remove(i int)  {
 	this.arr = append(this.arr[:i], this.arr[i+1:]...)
 }
 
-func (this *LRUCache) addToHead(node *Node)  {
+func (this *LRUCacheArray) addToHead(node *Node)  {
 	arr := this.arr
 	this.arr = append(make([]*Node, 0), node)
 	for _, n := range arr {
@@ -31,19 +31,19 @@ func (this *LRUCache) addToHead(node *Node)  {
 	}
 }
 
-func (this *LRUCache)moveToHead(i int)  {
+func (this *LRUCacheArray)moveToHead(i int)  {
 	node := this.arr[i]
 	this.remove(i)
 	this.addToHead(node)
 	
 }
 
-func Constructor(capacity int) LRUCache {
-	return LRUCache{make([]*Node,0),capacity}
+func ArrayConstructor(capacity int) LRUCacheArray {
+	return LRUCacheArray{make([]*Node,0),capacity}
 }
 
 
-func (this *LRUCache) Get(key int) int {
+func (this *LRUCacheArray) Get(key int) int {
 	if i,ok := this.exist(key);ok {
 		node := this.arr[i]
 		this.moveToHead(i)
@@ -54,7 +54,7 @@ func (this *LRUCache) Get(key int) int {
 }
 
 
-func (this *LRUCache) Put(key int, value int)  {
+func (this *LRUCacheArray) Put(key int, value int)  {
 	node := Node{key, value}
 	if i,ok := this.exist(key); ok {
 		this.arr[i].value = value
