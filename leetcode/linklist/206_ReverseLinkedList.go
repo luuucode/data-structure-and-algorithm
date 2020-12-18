@@ -34,11 +34,15 @@ func ReverseList1(head *ListNode) *ListNode {
 	return res
 }
 
-//todo
+//双指针做法
 func ReverseList2(head *ListNode) *ListNode{
-	var prev *ListNode = nil
-	for head.Next != nil {
-
+	var cur *ListNode = nil
+	prev := head
+	for prev != nil {
+		next := prev.Next
+		prev.Next = cur
+		cur = prev
+		prev = next
 	}
-	return prev
+	return cur
 }
