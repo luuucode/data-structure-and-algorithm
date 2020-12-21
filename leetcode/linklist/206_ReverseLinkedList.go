@@ -34,15 +34,35 @@ func ReverseList1(head *ListNode) *ListNode {
 	return res
 }
 
-//双指针做法
+//双指针做法（我想的第二个思路）
 func ReverseList2(head *ListNode) *ListNode{
 	var cur *ListNode = nil
+	//边界问题
+	if head == nil{
+		return head
+	}
 	prev := head
 	for prev != nil {
 		next := prev.Next
 		prev.Next = cur
 		cur = prev
 		prev = next
+	}
+	return cur
+}
+//妖魔化指针法（我想的第三个思路）
+func ReverseList3(head *ListNode) *ListNode{
+	//边界问题
+	if head == nil {
+		return head
+	}
+	//cur 作用：指向反转结果的头节点
+	cur := head
+	for head.Next != nil {
+		temp := head.Next
+		head.Next = temp.Next
+		temp.Next = cur
+		cur = temp
 	}
 	return cur
 }

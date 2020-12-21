@@ -21,7 +21,7 @@ func TestReverseList(t *testing.T) {
 	node1 := ListNode{2, &node2}
 	head := ListNode{1, &node1}
 
-	reverse := ReverseList2(&head)
+	reverse := ReverseList3(&head)
 	for reverse != nil {
 		t.Log(reverse.Val)
 		reverse = reverse.Next
